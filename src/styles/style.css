@@ -6,36 +6,113 @@
     box-sizing: border-box;
     font-family: Noto Sans, sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
-    margin-top: 15px;
     display: grid;
+    grid-template-areas: 
+    "header"
+    "attPage"
+    "imagensCachorros"
+    "footer";
+    grid-template-rows: 10vh 10vh auto 10vh;
     gap: 1em;
     place-items: center;
-    color: rgb(233, 168, 136);
     background: linear-gradient(to right, rgb(115, 140, 135) 0%, rgb(48, 62, 59) 100%);
 }
+#header{
+    grid-area: header;
+    text-align: center;
+    line-height: 10vh;
+    color: rgb(249, 217, 201);
+    background-color: rgb(48, 62, 59);
+    width: 100%;
+    height: 10vh;
+    margin-top: 0;
+}
+#attPage{
+    grid-area: attPage;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 15px;
+    border: solid 3px black;
+    background-color: rgb(249, 217, 201);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+#attPage:hover, #attPage:active{
+    border-color: rgb(249, 217, 201);
+    background-color: black;
+    color: white;
+}
+
 #imagensCachorros{
-    display: grid;
-    place-items: center;
+    grid-area: imagensCachorros;
+    display: flex;
+    flex-wrap: wrap;
     gap: 2em;
     margin: 1.5em;
 }
 .subDivImages{
-    width: 300px;
-    height: 300px;
+    min-width: 250px;
+    height: 600px;
+    flex: 1 350px;
     object-fit: cover;
-    padding: .8rem .8rem 2.3rem .8rem;
+    padding: 1rem 1rem 5rem 1rem;
     box-shadow: 0 .2em 1.3em .3em black;
     background-color: rgb(241, 245, 244);
+}
+img{
+    user-select: none;
+    pointer-events: none;
 }
 [data-src]{
     width: 0;
     height: 0;
     object-fit: cover;
-    object-position: center;
 }
 [src]{
     width: 100%;
     height: 100%;
     transition: .3s ease-in-out;
+}
+#arrowUp{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 15px;
+    transition: .4s;
+    opacity: 0;
+
+    button{
+        padding: 1rem;
+        border-radius: 45px;
+        border: 3px solid black;
+        background-color: rgb(249, 217, 201);
+        cursor: pointer;
+        transition: .4s;
+        opacity: .8;
+        
+        &:hover{
+            opacity: 1;
+        }
+    }
+
+    button > svg{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+#footer{
+    grid-area: footer;
+    text-align: center;
+    line-height: 10vh;
+    color: rgb(249, 217, 201);
+    background-color: rgb(48, 62, 59);
+    width: 100%;
+    height: 10vh;
+    margin-top: 0; 
 }
